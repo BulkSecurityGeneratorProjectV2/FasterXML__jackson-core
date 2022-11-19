@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.util.JsonParserDelegate;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.*;
 
 /**
@@ -483,7 +484,7 @@ public class SimpleParserTest extends BaseTest
     // [core#48]
     public void testSpacesInURL() throws Exception
     {
-        File f = File.createTempFile("pre fix&stuff", ".txt");
+        File f = Files.createTempFile("pre fix&stuff", ".txt").toFile();
         BufferedWriter w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f), "UTF-8"));
         w.write("{ }");
         w.close();

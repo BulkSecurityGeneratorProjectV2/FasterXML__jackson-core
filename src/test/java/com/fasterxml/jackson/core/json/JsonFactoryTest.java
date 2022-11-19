@@ -1,6 +1,7 @@
 package com.fasterxml.jackson.core.json;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Iterator;
 
 import com.fasterxml.jackson.core.*;
@@ -205,7 +206,7 @@ public class JsonFactoryTest
 
     public void testJsonWithFiles() throws Exception
     {
-        File file = File.createTempFile("jackson-test", null);
+        File file = Files.createTempFile("jackson-test", null).toFile();
         file.deleteOnExit();
         
         JsonFactory f = new JsonFactory();
